@@ -282,9 +282,9 @@ class API < Sinatra::Base
       @room_ids.push(m.room_id)
     end
 
-    @total_rooms = @runner_rooms.push(*(Room.all.where(room_id: @room_ids)))
+    @total_member_rooms = Room.all.where(room_id: @room_ids)
 
-    {:error => "false", :result => @total_rooms}.to_json
+    {:error => "false", :runner_rooms => @runner_rooms, :member_rooms => @total_member_rooms}.to_json
   end
 
   post '/room/show/member/username' do 
@@ -302,9 +302,9 @@ class API < Sinatra::Base
       @room_ids.push(m.room_id)
     end
 
-    @total_rooms = @runner_rooms.push(*(Room.all.where(room_id: @room_ids)))
+    @total_member_rooms = Room.all.where(room_id: @room_ids)
 
-    {:error => "false", :result => @total_rooms}.to_json
+    {:error => "false", :runner_rooms => @runner_rooms, :member_rooms => @total_member_rooms}.to_json
 
   end
 
