@@ -10,6 +10,7 @@ User.find_or_create_by(username: "HappyLou",
 			last_name: "Troung",
 			password: "poop",
 			email: "happy@lou.com",
+			phone_number: "4085060586",
 			image: "peace")
 
 User.find_or_create_by(username: "Unknown2Ray",
@@ -17,6 +18,7 @@ User.find_or_create_by(username: "Unknown2Ray",
 			last_name: "Glassey",
 			password: "noob",
 			email: "raymond@classy.com",
+			phone_number: "4088232050",
 			image: "love")
 
 User.find_or_create_by(username: "TheVK",
@@ -31,6 +33,7 @@ User.find_or_create_by(username: "BotOuyand",
 			last_name: "Ouyang",
 			password: "test123",
 			email: "lawrence@robots.com",
+			phone_number: "4088333420",
 			image: "selfcontrol")
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160526060226) do
+ActiveRecord::Schema.define(version: 20160527033112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,9 +67,11 @@ ActiveRecord::Schema.define(version: 20160526060226) do
   add_index "room_members", ["room_id"], name: "index_room_members_on_room_id", using: :btree
 
   create_table "rooms", force: :cascade do |t|
-    t.string "room_id"
-    t.string "runner_id"
-    t.string "room_name"
+    t.string   "room_id"
+    t.string   "runner_id"
+    t.string   "room_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "rooms", ["room_id"], name: "index_rooms_on_room_id", using: :btree
@@ -83,6 +85,7 @@ ActiveRecord::Schema.define(version: 20160526060226) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "image"
+    t.string   "phone_number"
   end
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
