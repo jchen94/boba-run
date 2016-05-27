@@ -234,6 +234,21 @@ class API < Sinatra::Base
     {:error => "false", :result => "#{@room.room_id}", :message => "success" }.to_json
   end
 
+    post '/room/create/username' do
+    # takes in runner id
+    @room = Room.new
+    @user = User.find_by(username: params['username'])
+    @room.runner_id = @user.id
+
+    @count = Room.all.where(runner_id: @user.id).count
+    @room.room_id = "#{@user.id}_#{@count}"
+    @room.room_name = params['room_name']
+    @room.save
+
+    # returns the room number back to the client
+    {:error => "false", :result => "#{@room.room_id}", :message => "success" }.to_json
+  end
+
   post '/room/delete' do
     # takes in room id
     # delete this room.
