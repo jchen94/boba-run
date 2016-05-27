@@ -334,6 +334,12 @@ class API < Sinatra::Base
     {:error => "false", :message => "success"}.to_json
   end
 
+  post '/room_member/show' do
+    # given a room_id, display all members
+
+    {:error => "false", :result => RoomMember.all.where(room_id: params['room_id'])}.to_json
+  end
+
   post '/room_member/edit/price' do
   # takes in roomid, memberid, price
 

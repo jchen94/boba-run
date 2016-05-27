@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.find_or_create_by(username: "HappyLou",
 			first_name: "Louis",
-			last_name: "Troung",
+			last_name: "Truong",
 			password: "poop",
 			email: "happy@lou.com",
 			phone_number: "4085060586",
@@ -70,23 +70,23 @@ GroupMember.find_or_create_by(g_id: "HappyLou_0",
 GroupMember.find_or_create_by(g_id: "HappyLou_0",
 							member_username: "TheVK")
 
-Room.find_or_create_by(room_id: "HappyLou_0",
+Room.find_or_create_by(room_id: "1_0",
 						runner_id: 1,
 						room_name: "My First Boba Run!")
 
-RoomMember.find_or_create_by(room_id: "HappyLou_0",
+RoomMember.find_or_create_by(room_id: "1_0",
 							room_members_id: 2,
-							drink: "Rose Milk Tea, less ice, less sugar",
+							drink: "Green Milk Tea, 50%, 25%, false ,Pearl, Pudding",
 							price: 3.5,
 							runner_paid: false)
 
-Room.find_or_create_by(room_id: "TheVK_0",
+Room.find_or_create_by(room_id: "3_0",
 						runner_id: 3,
 						room_name: "CoCo Westwood Boba Fun")
 
-RoomMember.find_or_create_by(room_id: "TheVK_0",
+RoomMember.find_or_create_by(room_id: "3_0",
 							room_members_id: 1,
-							drink: "Rose Milk Tea, less ice, less sugar",
+							drink: "Rose Milk Tea, 50%, 25%, false ,Pearl",
 							price: 3.5,
 							runner_paid: false)
 
