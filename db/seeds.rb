@@ -72,22 +72,26 @@ GroupMember.find_or_create_by(g_id: "HappyLou_0",
 
 Room.find_or_create_by(room_id: "1_0",
 						runner_id: 1,
+						all_drinks_purchased: false,
 						room_name: "My First Boba Run!")
 
 RoomMember.find_or_create_by(room_id: "1_0",
 							room_members_id: 2,
 							drink: "Green Milk Tea, 50%, 25%, false ,Pearl, Pudding",
 							price: 3.5,
+							drink_purchased: false,
 							runner_paid: false)
 
 Room.find_or_create_by(room_id: "3_0",
 						runner_id: 3,
+						all_drinks_purchased: false,
 						room_name: "CoCo Westwood Boba Fun")
 
 RoomMember.find_or_create_by(room_id: "3_0",
 							room_members_id: 1,
 							drink: "Rose Milk Tea, 50%, 25%, false ,Pearl",
 							price: 3.5,
+							drink_purchased: false,
 							runner_paid: false)
 
 

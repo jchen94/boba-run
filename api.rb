@@ -228,6 +228,7 @@ class API < Sinatra::Base
     @count = Room.all.where(runner_id: params['runner_id']).count
     @room.room_id = "#{params['runner_id']}_#{@count}"
     @room.room_name = params['room_name']
+    @room.all_drinks_purchased = false
     @room.save
 
     # returns the room number back to the client
@@ -374,6 +375,8 @@ class API < Sinatra::Base
     @drink.runner_paid = true
     @drink.save
 
+    # check if all paid?
+
     {:error => "false", :message => "successfully set runner paid to true"}.to_json
   end
 
@@ -383,7 +386,21 @@ class API < Sinatra::Base
     @drink.drink_purchased = true
     @drink.save
 
-    {:error => "false", :message => "drink successfully set to true"}.to_json
+        # check if all other drinks are paid
+    @all_paid = true
+    @all_drinks_in_room = RoomMember.all.where(room_id: @drink.room_id)
+    @all_drinks_in_room.each do |d|
+      if !d.drink_purchased then
+        @all_paid = false
+        break
+      end
+    end
+
+    @room = Room.find_by(room_id: @drink.room_id)
+    @room.all_drinks_purchased = true
+    @room.save
+
+    {:error => "false", :message => [@all_paid, @room]}.to_json
   end
 
   get '/room_member/show_all' do
