@@ -362,23 +362,28 @@ class API < Sinatra::Base
     {:error => "false", :message => "success"}.to_json
   end
 
-  post '/room_member/edit/runner_paid' do
-  # takes in room number
-  # takes in member id (drink owner)
-  # update runner_paid field
-
-    @drink = RoomMember.all.where(room_members_id: params['member_id']).where(room_id: params['room_id'])
-    @drink.runner_paid = params['runner_paid']
-
-    # returns success or failure to add
-    {:error => "false", :message => "success"}.to_json
-  end
-
   post '/room_member/delete/member' do
     # takes in room id and member id
     @member = RoomMember.all.where(room_id: params['room_id']).where(room_members_id: params['member_id'])
     RoomMember.delete(@member)
     {:error => "false", :message => "success"}.to_json
+  end
+
+  post '/room_member/edit/runner_paid/set_true' do
+    @drink = RoomMember.find_by(id: params['id'])
+    @drink.runner_paid = true
+    @drink.save
+
+    {:error => "false", :message => "successfully set runner paid to true"}.to_json
+  end
+
+  post '/room_member/edit/drink_purchased/set_true' do
+    # given room_member entry id, set drink_purchased field to true
+    @drink = RoomMember.find_by(id: params['id'])
+    @drink.drink_purchased = true
+    @drink.save
+
+    {:error => "false", :message => "drink successfully set to true"}.to_json
   end
 
   get '/room_member/show_all' do
