@@ -170,9 +170,12 @@ class API < Sinatra::Base
     @count = Group.all.where(owner_username: params['owner_username']).count
     @group.g_id = "#{params['owner_username']}_#{@count}"
 
+    @group.group_name = @group.g_id
+    @group.image = "gentleness"
+
     @group.group_name = params['name']
     @group.save
-    {:error => "false", :result => [@group], :message => "success"}.to_json
+    {:error => "false", :result => @group.g_id, :message => "success"}.to_json
   end
 
   post '/group/show/username' do
