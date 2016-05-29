@@ -170,7 +170,7 @@ class API < Sinatra::Base
     @count = Group.all.where(owner_username: params['owner_username']).count
     @group.g_id = "#{params['owner_username']}_#{@count}"
 
-    @group.group_name = @group.g_id
+    @group.group_name = "#{params['owner_username']}_#{@count}"
     @group.image = "gentleness"
 
     @group.group_name = params['name']
