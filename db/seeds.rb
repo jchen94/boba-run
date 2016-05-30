@@ -36,6 +36,22 @@ User.find_or_create_by(username: "BotOuyand",
 			phone_number: "4088333420",
 			image: "selfcontrol")
 
+User.find_or_create_by(username: "Jess",
+			first_name: "Jessica",
+			last_name: "Pham",
+			password: "test123",
+			email: "jess@email.com",
+			phone_number: "4088333420",
+			image: "goodness")
+
+User.find_or_create_by(username: "shortyeu",
+			first_name: "Nick",
+			last_name: "Eu",
+			password: "test123",
+			email: "nick@email.com",
+			phone_number: "4088232050",
+			image: "gentleness")
+
 
 Friend.find_or_create_by(user_id: 1,
 			friend_id: 2)
@@ -55,6 +71,17 @@ Friend.find_or_create_by(user_id: 1,
 Friend.find_or_create_by(user_id: 4,
 			friend_id: 1)
 
+Friend.find_or_create_by(user_id: 1,
+			friend_id: 5)
+
+Friend.find_or_create_by(user_id: 1,
+			friend_id: 6)
+
+Friend.find_or_create_by(user_id: 5,
+			friend_id: 1)
+
+Friend.find_or_create_by(user_id: 6,
+			friend_id: 1)
 
 Group.find_or_create_by(owner_username: "HappyLou",
 						group_name: "Cool Kidz",
@@ -62,13 +89,21 @@ Group.find_or_create_by(owner_username: "HappyLou",
 						g_id: "HappyLou_0")
 
 Group.find_or_create_by(owner_username: "HappyLou",
-						)
+						group_name: "My CSM117 Buddies",
+						image: "goodness",
+						g_id: "HappyLou_0")
 
 GroupMember.find_or_create_by(g_id: "HappyLou_0",
 							member_username: "Unknown2Ray")
 
 GroupMember.find_or_create_by(g_id: "HappyLou_0",
 							member_username: "TheVK")
+
+GroupMember.find_or_create_by(g_id: "HappyLou_1",
+							member_username: "Jess")
+
+GroupMember.find_or_create_by(g_id: "HappyLou_1",
+							member_username: "shortyeu")
 
 Room.find_or_create_by(room_id: "1_0",
 						runner_id: 1,
