@@ -45,6 +45,7 @@ class API < Sinatra::Base
     	@user.username = params['username']
     	@user.password = params['password']
       @user.email = params['email']
+      @user.phone_number = params['phone_number']
     	@user.save
       {:error => "false", :result => [@user], :message => "success"}.to_json
     end
