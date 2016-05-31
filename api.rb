@@ -174,9 +174,6 @@ class API < Sinatra::Base
     @group.group_name = params['group_name']
     @group.image = "gentleness"
 
-    if params['name']
-      @group.group_name = params['name']
-    end
     @group.save
     {:error => "false", :result => @group.g_id, :message => "success"}.to_json
   end

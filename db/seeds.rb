@@ -89,7 +89,7 @@ Group.find_or_create_by(owner_username: "HappyLou",
 						g_id: "HappyLou_0")
 
 Group.find_or_create_by(owner_username: "HappyLou",
-						group_name: "My CSM117 Buddies",
+						group_name: "Some CS M117 Friends",
 						image: "goodness",
 						g_id: "HappyLou_1")
 
